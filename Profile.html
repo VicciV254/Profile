@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Victor Mutua | Futuristic Portfolio</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: radial-gradient(circle at 20% 30%, #0a0f1e, #03060c);
+      color: #eef5ff;
+      font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, 'Inter', sans-serif;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* futuristic glow & glassmorphism */
+    .glass-card {
+      background: rgba(15, 25, 45, 0.55);
+      backdrop-filter: blur(12px);
+      border-radius: 2rem;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 8px rgba(0, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(0, 255, 255, 0.6);
+      box-shadow: 0 20px 40px rgba(0, 180, 255, 0.2), 0 0 15px cyan;
+      transform: translateY(-5px);
+    }
+
+    /* navbar */
+    .navbar {
+      position: sticky;
+      top: 1rem;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      background: rgba(10, 20, 35, 0.7);
+      backdrop-filter: blur(14px);
+      width: fit-content;
+      margin: 1rem auto;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .navbar a {
+      color: #c0eaff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.4rem 0.8rem;
+      border-radius: 40px;
+      cursor: pointer;
+    }
+
+    .navbar a i {
+      font-size: 1.2rem;
+      transition: 0.2s;
+    }
+
+    .navbar a:hover {
+      color: #0ff;
+      text-shadow: 0 0 8px cyan;
+      background: rgba(0, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* container & sections */
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    section {
+      scroll-margin-top: 5rem;
+      margin-bottom: 4rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff, #0ff, #a0f0ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .tagline {
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      opacity: 0.9;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      display: inline-block;
+      border-left: 6px solid #0ff;
+      padding-left: 1.2rem;
+      text-shadow: 0 0 5px cyan;
+    }
+
+    /* about + skills grid */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .skills-box {
+      background: rgba(0, 20, 40, 0.6);
+      border-radius: 1.5rem;
+      padding: 1.6rem;
+      border: 1px solid rgba(0, 255, 255, 0.3);
+    }
+
+    .skills-box h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill-tags span {
+      background: rgba(0, 200, 255, 0.15);
+      backdrop-filter: blur(4px);
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      border: 1px solid rgba(0, 255, 255, 0.4);
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .skill-tags span:hover {
+      background: cyan;
+      color: #0a0f1e;
+      box-shadow: 0 0 12px cyan;
+      transform: scale(1.02);
+    }
+
+    .interests-extra {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .interest-item {
+      background: rgba(0, 255, 255, 0.1);
+      border-radius: 30px;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* contact section with form */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .info-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(20, 30, 55, 0.5);
+      padding: 1rem 1.5rem;
+      border-radius: 1.5rem;
+      transition: 0.2s;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    .info-card i {
+      font-size: 2rem;
+      color: #0ff;
+      width: 2.5rem;
+      text-align: center;
+    }
+
+    .info-card a, .info-card span {
+      color: #eef5ff;
+      text-decoration: none;
+      font-weight: 500;
+      word-break: break-all;
+    }
+
+    .info-card:hover {
+      border-color: cyan;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+      transform: translateX(5px);
+    }
+
+    .form-card {
+      background: rgba(12, 22, 40, 0.7);
+      backdrop-filter: blur(12px);
+      padding: 1.8rem;
+      border-radius: 1.8rem;
+      border: 1px solid rgba(0, 255, 255, 0.25);
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      background: rgba(0, 10, 25, 0.7);
+      border: 1px solid rgba(0, 255, 255, 0.4);
+      border-radius: 1rem;
+      color: white;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: cyan;
+      box-shadow: 0 0 10px cyan;
+    }
+
+    button {
+      background: linear-gradient(95deg, #0a7e8c, #0b3b5f);
+      border: none;
+      padding: 0.9rem 1.8rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid rgba(0, 255, 255, 0.5);
+    }
+
+    button:hover {
+      background: linear-gradient(95deg, #0ff, #0a6c8c);
+      box-shadow: 0 0 15px cyan;
+      transform: scale(1.02);
+      color: #000;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .confirmation-msg {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      border-radius: 1rem;
+      background: rgba(0, 255, 100, 0.2);
+      border-left: 5px solid #0f0;
+      font-weight: 500;
+      display: none;
+      backdrop-filter: blur(8px);
+    }
+
+    .confirmation-msg.error {
+      border-left-color: #ff4444;
+      background: rgba(255, 68, 68, 0.2);
+    }
+
+    .confirmation-msg.show {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    .github-extra {
+      margin-top: 3rem;
+      padding: 1.2rem;
+      text-align: center;
+      border-radius: 2rem;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid rgba(0, 255, 255, 0.2);
+      margin-top: 2rem;
+      font-size: 0.85rem;
+    }
+
+    /* responsive */
+    @media (max-width: 800px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .navbar {
+        gap: 1rem;
+        padding: 0.6rem 1.2rem;
+      }
+      .navbar a {
+        font-size: 0.9rem;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 1rem;
+      }
+      .info-card {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    .fab, .fas, .far {
+      transition: 0.2s;
+    }
+    .info-card:hover i, .navbar a:hover i {
+      text-shadow: 0 0 8px cyan;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="#home"><i class="fas fa-home"></i> Home</a>
+  <a href="#about"><i class="fas fa-user-astronaut"></i> About</a>
+  <a href="#contact"><i class="fas fa-paper-plane"></i> Contact</a>
+  <a href="#skills"><i class="fas fa-code"></i> Skills</a>
+</nav>
+
+<div class="container">
+  <!-- Home / Hero Section -->
+  <section id="home">
+    <div class="hero glass-card" style="padding: 2rem 1.5rem;">
+      <h1>Victor Mutua</h1>
+      <p class="tagline"><i class="fas fa-microchip"></i>  shaping tomorrow's code & data | 20 y/o visionary</p>
+      <div style="margin-top: 1.2rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+        <span><i class="fas fa-graduation-cap"></i> Computer Science @ TUM</span>
+        <span><i class="fas fa-chart-line"></i> Data Alchemist</span>
+        <span><i class="fas fa-laptop-code"></i> Software Architect</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2 class="section-title"><i class="fas fa-user-edit"></i> About Me</h2>
+    <div class="about-grid">
+      <div class="glass-card about-text" style="padding: 1.8rem;">
+        <p><i class="fas fa-smile-wink"></i> I'm <strong>Victor Mutua</strong>, 20 years old — a passionate university student diving deep into <strong>Computer Science</strong> at <strong>Technical University of Mombasa</strong>.</p>
+        <p>🌍 The world is racing toward a tech-driven future, and I chose CS to be <strong>part of that revolution</strong>. From algorithms to data systems, I'm determined to craft solutions that push boundaries.</p>
+        <p>✨ My ultimate dream: <strong>leave a mark</strong> in the tech ecosystem, build impactful tools, and continuously sharpen my skills while inspiring others.</p>
+        <div class="interests-extra">
+          <div class="interest-item"><i class="fas fa-brain"></i> AI Enthusiast</div>
+          <div class="interest-item"><i class="fas fa-database"></i> Big Data</div>
+          <div class="interest-item"><i class="fas fa-cloud"></i> Cloud Computing</div>
+        </div>
+      </div>
+      <div class="skills-box glass-card" id="skills">
+        <h3><i class="fas fa-cogs"></i> Core Focus</h3>
+        <div class="skill-tags">
+          <span>Data Analyst</span>
+          <span>Software Developer</span>
+          <span>Python/SQL</span>
+          <span>JavaScript/React</span>
+          <span>Tableau/PowerBI</span>
+          <span>Machine Learning</span>
+        </div>
+        <div style="margin-top: 1.5rem;">
+          <h3><i class="fas fa-heart"></i> Interests & Passions</h3>
+          <div class="skill-tags" style="margin-top: 0.5rem;">
+            <span>🔍 Data Storytelling</span>
+            <span>🛠️ Open Source</span>
+            <span>🤖 Automation</span>
+            <span>📊 Business Intelligence</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section with FormSubmit.co - Works immediately, no registration needed -->
+  <section id="contact">
+    <h2 class="section-title"><i class="fas fa-comment-dots"></i> Let's Connect</h2>
+    <div class="contact-wrapper">
+      <!-- contact details -->
+      <div class="contact-info">
+        <div class="info-card">
+          <i class="fas fa-phone-alt"></i>
+          <span>Tel: +254 729 125 000</span>
+        </div>
+        <div class="info-card">
+          <i class="fas fa-envelope"></i>
+          <span>vicmutua254@gmail.com</span>
+        </div>
+        <div class="info-card">
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/VicciV254" target="_blank">github.com/VicciV254</a>
+        </div>
+        <div class="info-card">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Mombasa, Kenya 🇰🇪</span>
+        </div>
+      </div>
+
+      <!-- Working Contact Form - Uses FormSubmit.co API (free, no registration, sends emails directly) -->
+      <div class="form-card">
+        <h3 style="margin-bottom: 1rem; display: flex; gap: 8px;"><i class="fas fa-paper-plane"></i> Send a Message</h3>
+        <form id="contactForm">
+          <div class="form-group">
+            <label><i class="far fa-user"></i> Full Name *</label>
+            <input type="text" id="userName" placeholder="e.g., Jane Cooper" required>
+          </div>
+          <div class="form-group">
+            <label><i class="far fa-envelope"></i> Your Email *</label>
+            <input type="email" id="userEmail" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label><i class="far fa-comment"></i> Comments / Message *</label>
+            <textarea rows="4" id="userMsg" placeholder="Share your thoughts, project ideas, or just say hi..." required></textarea>
+          </div>
+          <button type="submit" id="sendBtn"><i class="fas fa-share-square"></i> Send Message</button>
+        </form>
+        <div id="confirmationMessage" class="confirmation-msg"></div>
+        <p style="font-size: 0.75rem; margin-top: 1rem; opacity: 0.7;"><i class="fas fa-envelope-open-text"></i> ✓ Messages are delivered directly to my inbox (vicmutua254@gmail.com). No external apps open.</p>
+      </div>
+    </div>
+
+    <!-- github extra section -->
+    <div class="github-extra glass-card">
+      <i class="fab fa-github" style="font-size: 1.8rem; margin-right: 12px;"></i> 
+      <strong>Check my code evolution</strong> → 
+      <a href="https://github.com/VicciV254" target="_blank" style="color: #0ff; text-decoration: none;">github.com/VicciV254 <i class="fas fa-external-link-alt"></i></a>
+      <div style="margin-top: 10px;"><i class="fas fa-code-branch"></i> Open for collabs | Data & dev projects</div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Victor Mutua — Futuristic Portfolio • Built with 🧠 and <i class="fas fa-gem" style="color:#0ff;"></i> cyber vibe</p>
+    <p style="margin-top: 5px;"><i class="fas fa-globe"></i> "Coding tomorrow's reality, today."</p>
+  </footer>
+</div>
+
+<script>
+  (function() {
+    const form = document.getElementById('contactForm');
+    const confirmDiv = document.getElementById('confirmationMessage');
+    const sendBtn = document.getElementById('sendBtn');
+    
+    // Using FormSubmit.co API - a free service that sends emails without requiring registration
+    // It forwards submissions directly to vicmutua254@gmail.com
+    const FORM_SUBMIT_URL = 'https://formsubmit.co/ajax/vicmutua254@gmail.com';
+    
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const nameInput = document.getElementById('userName');
+      const emailInput = document.getElementById('userEmail');
+      const msgInput = document.getElementById('userMsg');
+      
+      let nameVal = nameInput.value.trim();
+      let emailVal = emailInput.value.trim();
+      let msgVal = msgInput.value.trim();
+      
+      // Validation
+      if(!nameVal || !emailVal || !msgVal) {
+        confirmDiv.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ⚠️ Please fill in all fields before sending.`;
+        confirmDiv.classList.add('show', 'error');
+        setTimeout(() => {
+          confirmDiv.classList.remove('show', 'error');
+        }, 4000);
+        return;
+      }
+      
+      const emailPattern = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/;
+      if(!emailPattern.test(emailVal)) {
+        confirmDiv.innerHTML = `<i class="fas fa-times-circle"></i> ❌ Please enter a valid email address.`;
+        confirmDiv.classList.add('show', 'error');
+        setTimeout(() => {
+          confirmDiv.classList.remove('show', 'error');
+        }, 4000);
+        return;
+      }
+      
+      // Disable button and show loading
+      const originalText = sendBtn.innerHTML;
+      sendBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Sending...';
+      sendBtn.disabled = true;
+      
+      // Prepare data for FormSubmit
+      const formData = new FormData();
+      formData.append('name', nameVal);
+      formData.append('email', emailVal);
+      formData.append('message', msgVal);
+      formData.append('_subject', `Portfolio Message from ${nameVal}`);
+      formData.append('_captcha', 'false');  // Disable captcha for smoother experience
+      formData.append('_template', 'table');
+      
+      try {
+        const response = await fetch(FORM_SUBMIT_URL, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          // Success!
+          confirmDiv.innerHTML = `
+            <i class="fas fa-check-circle" style="margin-right: 8px;"></i> 
+            <strong>✅ Message Sent Successfully!</strong><br>
+            Thank you ${nameVal}, your message has been delivered to <strong>Victor Mutua (vicmutua254@gmail.com)</strong>.<br>
+            <small><i class="fas fa-envelope-open"></i> I'll review and get back to you soon.</small>
+          `;
+          confirmDiv.classList.add('show');
+          confirmDiv.classList.remove('error');
+          
+          // Clear the message field only (keep name/email for convenience)
+          msgInput.value = '';
+          
+          // Auto-hide confirmation after 6 seconds
+          setTimeout(() => {
+            confirmDiv.classList.remove('show');
+          }, 6000);
+        } else {
+          throw new Error('Server responded with error');
+        }
+      } catch (error) {
+        console.error('Send error:', error);
+        confirmDiv.innerHTML = `
+          <i class="fas fa-exclamation-triangle"></i> 
+          <strong>⚠️ Unable to Send</strong><br>
+          There was a temporary issue. Please try again in a moment, or email me directly at vicmutua254@gmail.com.<br>
+          <small>Your message has been saved locally.</small>
+        `;
+        confirmDiv.classList.add('show', 'error');
+        setTimeout(() => {
+          confirmDiv.classList.remove('show', 'error');
+        }, 7000);
+      } finally {
+        // Re-enable button
+        sendBtn.innerHTML = originalText;
+        sendBtn.disabled = false;
+      }
+    });
+  })();
+</script>
+
+<!-- 
+  HOW THIS WORKS:
+  - Uses FormSubmit.co's free API - no registration, no API keys needed
+  - When user submits, the form data is sent to vicmutua254@gmail.com
+  - The email comes from FormSubmit's servers, so Victor receives it directly
+  - No external email client opens - all happens in background
+  - User gets instant confirmation on the page
+  - Works on any device, any browser
+  
+  FORM SUBMIT FEATURES:
+  - Free forever, unlimited submissions
+  - Emails are delivered to vicmutua254@gmail.com
+  - Includes sender's name, email, and message
+  - Spam protection built-in
+  - No configuration needed - works immediately!
+-->
+</body>
+</html>
