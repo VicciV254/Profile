@@ -517,8 +517,7 @@
     const confirmDiv = document.getElementById('confirmationMessage');
     const sendBtn = document.getElementById('sendBtn');
     
-    // Using FormSubmit.co API - a free service that sends emails without requiring registration
-    // It forwards submissions directly to vicmutua254@gmail.com
+    // FormSubmit emails each message to the address in this URL, so the page needs no server of its own.
     const FORM_SUBMIT_URL = 'https://formsubmit.co/ajax/vicmutua254@gmail.com';
     
     form.addEventListener('submit', async function(e) {
